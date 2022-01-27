@@ -28,10 +28,13 @@ public class MarkdownParse {
             if(closeParen == -1){
                 break;
             }
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;  
 
-            System.out.println(currentIndex);
+            if(openParen-nextOpenBracket == 1){
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
+
+            // System.out.println(currentIndex);
         }
         return toReturn;
     }
@@ -42,3 +45,4 @@ public class MarkdownParse {
         System.out.println(links);
     }
 }
+//for(($i-1); $i -lt 10; $i++){}
