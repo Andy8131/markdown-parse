@@ -28,11 +28,31 @@ public class MarkdownParse {
             if(closeParen == -1){
                 break;
             }
+            int counter = 1;
+            for(int w = openParen; w <closeParen; w++){
+                if(markdown.substring(openParen+counter,openParen+counter+1).equals("(")){
+                    counter++;
+                }
+            } 
+
+            if(counter > 1){
+                openParen = openParen+counter-1;
+            }                  
             currentIndex = closeParen + 1;  
-            if(openParen-nextCloseBracket == 1){
+
+            if(openParen-nextCloseBracket == counter){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
+
             // System.out.println(currentIndex);
         }
         return toReturn;
     }
+    public static void main(String[] args) throws IOException {
+		Path fileName = Path.of(args[0]);
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = getLinks(contents);
+        System.out.println(links);
+    }
+}
+//for(($i-1); $i -lt 10; $i++){}
