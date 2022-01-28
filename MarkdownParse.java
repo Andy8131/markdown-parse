@@ -29,20 +29,10 @@ public class MarkdownParse {
                 break;
             }
             currentIndex = closeParen + 1;  
-
-            if(openParen-nextOpenBracket == 1){
+            if(openParen-nextCloseBracket == 1){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
-
             // System.out.println(currentIndex);
         }
         return toReturn;
     }
-    public static void main(String[] args) throws IOException {
-		Path fileName = Path.of(args[0]);
-	    String contents = Files.readString(fileName);
-        ArrayList<String> links = getLinks(contents);
-        System.out.println(links);
-    }
-}
-//for(($i-1); $i -lt 10; $i++){}
