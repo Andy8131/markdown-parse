@@ -40,8 +40,11 @@ public class MarkdownParse {
             }                  
             currentIndex = closeParen + 1;  
 
-            if(openParen-nextCloseBracket == counter){
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            if(markdown.substring(openParen + 1, closeParen).contains(".")){
+
+                if(openParen-nextCloseBracket == counter){
+                    toReturn.add(markdown.substring(openParen + 1, closeParen));
+                }
             }
 
             // System.out.println(currentIndex);
