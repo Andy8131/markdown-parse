@@ -56,6 +56,7 @@ public class MarkdownParse {
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = getLinks(contents);
         System.out.println(links);
+        System.out.println("words");
     }
 }
 //for(($i-1); $i -lt 10; $i++){}
