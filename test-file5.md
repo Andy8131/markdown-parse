@@ -4,4 +4,4 @@
 asdsa
 [another link!](some-page.html)
 asdsa
-[[link](google.com)](bing.com)
+[[link](google.com)](bing.com) hh
