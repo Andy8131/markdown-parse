@@ -20,6 +20,7 @@ public class MarkdownParse {
             if(nextCloseBracket == -1){
                 break;
             }
+
             int openParen = markdown.indexOf("(", nextCloseBracket);
             if(openParen == -1){
                 break;
@@ -27,6 +28,12 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             if(closeParen == -1){
                 break;
+            }
+            //bug fix
+
+            int closeParen2 = markdown.indexOf(")", closeParen+1);
+            if(closeParen2-closeParen ==1){
+                closeParen = closeParen2;
             }
             int counter = 1;
             for(int w = openParen; w <closeParen; w++){
